@@ -1,4 +1,4 @@
-# 🔐 OAuth Login — Laravel
+# OAuth Login — Laravel
 
 Aplicación web desarrollada en **Laravel** que implementa autenticación federada mediante **OAuth 2.0** utilizando tres proveedores externos: **Discord**, **Spotify** y **Twitch**.
 
@@ -6,20 +6,20 @@ El proyecto fue desarrollado como práctica del estándar OAuth 2.0 y OpenID Con
 
 ---
 
-## 📋 Tabla de contenidos
+## Tabla de contenidos
 
-- [Descripción](#-descripción)
-- [Tecnologías utilizadas](#-tecnologías-utilizadas)
-- [Requisitos previos](#-requisitos-previos)
-- [Instalación](#-instalación)
-- [Configuración de proveedores OAuth](#-configuración-de-proveedores-oauth)
-- [Uso de ngrok](#-uso-de-ngrok)
-- [Estructura del proyecto](#-estructura-del-proyecto)
-- [Uso](#-uso)
+- [Descripción](#descripción)
+- [Tecnologías utilizadas](#tecnologías-utilizadas)
+- [Requisitos previos](#requisitos-previos)
+- [Instalación](#instalación)
+- [Configuración de proveedores OAuth](#configuración-de-proveedores-oauth)
+- [Uso de ngrok](#uso-de-ngrok)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Uso](#uso)
 
 ---
 
-## 📖 Descripción
+## Descripción
 
 Esta aplicación permite a los usuarios iniciar sesión utilizando sus cuentas existentes de Discord, Spotify o Twitch, sin necesidad de crear un nuevo usuario o contraseña. Al autenticarse, la aplicación:
 
@@ -30,7 +30,7 @@ Esta aplicación permite a los usuarios iniciar sesión utilizando sus cuentas e
 
 ---
 
-## 🛠 Tecnologías utilizadas
+## Tecnologías utilizadas
 
 | Tecnología | Versión | Uso |
 |---|---|---|
@@ -44,7 +44,7 @@ Esta aplicación permite a los usuarios iniciar sesión utilizando sus cuentas e
 
 ---
 
-## ✅ Requisitos previos
+## Requisitos previos
 
 Antes de instalar el proyecto asegúrate de tener:
 
@@ -56,7 +56,7 @@ Antes de instalar el proyecto asegúrate de tener:
 
 ---
 
-## 🚀 Instalación
+## Instalación
 
 ### 1. Clonar el repositorio
 
@@ -108,7 +108,7 @@ La aplicación estará disponible en `http://localhost:8000`.
 
 ---
 
-## 🔑 Configuración de proveedores OAuth
+## Configuración de proveedores OAuth
 
 Cada proveedor requiere que registres una aplicación en su panel de desarrolladores para obtener el `Client ID` y `Client Secret`.
 
@@ -151,11 +151,11 @@ TWITCH_CLIENT_SECRET=tu_client_secret
 TWITCH_REDIRECT=https://TU-URL-NGROK/auth/twitch/callback
 ```
 
-> ⚠️ **Nunca subas el archivo `.env` al repositorio.** Ya está incluido en el `.gitignore` por defecto.
+> **Nota:** Nunca subas el archivo `.env` al repositorio. Ya está incluido en el `.gitignore` por defecto.
 
 ---
 
-## 🌐 Uso de ngrok
+## Uso de ngrok
 
 Spotify y Twitch requieren que la Redirect URI use el protocolo **HTTPS**. En desarrollo local esto no es posible directamente, por lo que se utiliza **ngrok** para crear un túnel HTTPS público.
 
@@ -197,7 +197,7 @@ Forwarding   https://xxxx-xxx-xxx-xxx-xx.ngrok-free.app -> http://localhost:8000
 
 Usa esa URL como base para todas las Redirect URIs en los paneles de los proveedores y en tu `.env`.
 
-### ⚠️ Importante: la URL cambia en cada sesión
+### Importante: la URL cambia en cada sesión
 
 En el plan gratuito de ngrok, **la URL se regenera cada vez que reinicias el túnel**. Cuando esto ocurra debes actualizar:
 
@@ -211,7 +211,7 @@ php artisan config:clear
 
 ---
 
-## 📁 Estructura del proyecto
+## Estructura del proyecto
 
 ```
 oauth-login/
@@ -238,7 +238,7 @@ oauth-login/
 
 ---
 
-## 💻 Uso
+## Uso
 
 Una vez configurado e iniciado el servidor, accede a:
 
