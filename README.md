@@ -46,7 +46,7 @@ Esta aplicación permite a los usuarios iniciar sesión utilizando sus cuentas e
 
 ## Requisitos previos
 
-Antes de instalar el proyecto asegúrate de tener:
+Para ejecutar el proyecto necesitamos tener instalado:
 
 - **PHP 8.2 o superior** con las extensiones: `curl`, `mbstring`, `xml`, `zip`, `sqlite3`, `bcmath`, `intl`
 - **Composer 2.x**
@@ -80,7 +80,7 @@ php artisan key:generate
 
 ### 4. Configurar la base de datos
 
-En el archivo `.env`, asegúrate de tener:
+En el archivo `.env` configuramos:
 
 ```env
 DB_CONNECTION=sqlite
@@ -110,7 +110,7 @@ La aplicación estará disponible en `http://localhost:8000`.
 
 ## Configuración de proveedores OAuth
 
-Cada proveedor requiere que registres una aplicación en su panel de desarrolladores para obtener el `Client ID` y `Client Secret`.
+Registramos una aplicación en el panel de desarrolladores de cada proveedor para obtener el `Client ID` y `Client Secret`.
 
 ### Discord
 
@@ -135,7 +135,7 @@ Cada proveedor requiere que registres una aplicación en su panel de desarrollad
 
 ### Variables de entorno
 
-Una vez que tengas las credenciales, agrégalas al archivo `.env`:
+Con las credenciales obtenidas, las agregamos al archivo `.env`:
 
 ```env
 DISCORD_CLIENT_ID=tu_client_id
@@ -151,7 +151,7 @@ TWITCH_CLIENT_SECRET=tu_client_secret
 TWITCH_REDIRECT=https://TU-URL-NGROK/auth/twitch/callback
 ```
 
-> **Nota:** Nunca subas el archivo `.env` al repositorio. Ya está incluido en el `.gitignore` por defecto.
+> **Nota:** Los archivos `.env` nunca van al repositorio. Ya van incluidos en el `.gitignore` por defecto.
 
 ---
 
@@ -170,7 +170,7 @@ curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc \
   && sudo apt install ngrok
 ```
 
-Configura tu token de autenticación (obtenlo en https://ngrok.com):
+Configuramos el token de autenticación:
 
 ```bash
 ngrok config add-authtoken TU_TOKEN
@@ -178,7 +178,7 @@ ngrok config add-authtoken TU_TOKEN
 
 ### Uso
 
-Necesitas dos terminales abiertas simultáneamente:
+Se necesitan dos terminales abiertas simultáneamente:
 
 **Terminal 1 — Laravel:**
 ```bash
@@ -195,11 +195,11 @@ ngrok mostrará una URL pública como:
 Forwarding   https://xxxx-xxx-xxx-xxx-xx.ngrok-free.app -> http://localhost:8000
 ```
 
-Usa esa URL como base para todas las Redirect URIs en los paneles de los proveedores y en tu `.env`.
+Esa URL se usa como base para todas las Redirect URIs en los paneles de los proveedores y en el `.env`.
 
 ### Importante: la URL cambia en cada sesión
 
-En el plan gratuito de ngrok, **la URL se regenera cada vez que reinicias el túnel**. Cuando esto ocurra debes actualizar:
+En el plan gratuito de ngrok, **la URL se regenera cada vez que reinicias el túnel**. Cuando esto ocurra se actualiza:
 
 1. Las Redirect URIs en el panel de **Discord**, **Spotify** y **Twitch**
 2. Las variables `DISCORD_REDIRECT`, `SPOTIFY_REDIRECT` y `TWITCH_REDIRECT` en el `.env`
@@ -240,12 +240,12 @@ oauth-login/
 
 ## Uso
 
-Una vez configurado e iniciado el servidor, accede a:
+Con el servidor corriendo, accedemos a:
 
 ```
 https://TU-URL-NGROK/login
 ```
 
-Desde ahí puedes autenticarte con cualquiera de los tres proveedores. Tras el login serás redirigido al dashboard donde se muestra tu nombre, avatar, email, proveedor utilizado y fecha de registro en la aplicación.
+Desde ahí se puede autenticar con cualquiera de los tres proveedores. Tras el login se redirige al dashboard donde se muestra el nombre, avatar, email, proveedor utilizado y fecha de registro en la aplicación.
 
-Para cerrar sesión usa el botón **"Cerrar sesión"** en el dashboard.
+Para cerrar sesión se usa el botón **"Cerrar sesión"** en el dashboard.
